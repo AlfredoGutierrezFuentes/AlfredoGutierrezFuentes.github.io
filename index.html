@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alfredo Gutiérrez Fuentes — Periodismo cultural</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Piazzolla:ital,opsz,wght@0,8..30,400;0,8..30,500;0,8..30,600;1,8..30,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #EFE9DC;
+    --paper-deep: #E5DDCB;
+    --ink: #1D2622;
+    --ink-soft: #4A544C;
+    --line: #C9BFA8;
+    --copper: #5E7F6B;
+    --copper-deep: #3E5C4C;
+    --rust: #A6572F;
+    --night: #1B241F;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.6;
+  }
+  h1,h2,h3, .display{
+    font-family:'Piazzolla', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  a{color:var(--copper-deep);}
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  /* ---------- Header / masthead ---------- */
+  header{
+    border-bottom:1px solid var(--line);
+    padding:20px 0;
+  }
+  .masthead{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    font-size:0.8rem;
+    color:var(--ink-soft);
+  }
+  .masthead .locale{font-style:italic;}
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:64px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 3.6rem);
+    line-height:1.05;
+    max-width:11ch;
+  }
+  .hero .role{
+    margin-top:18px;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+    max-width:42ch;
+  }
+  .hero .role em{
+    color:var(--copper-deep);
+    font-style:normal;
+    border-bottom:2px solid var(--copper);
+  }
+  .hero .base{
+    margin-top:28px;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    display:flex;
+    gap:10px;
+    align-items:center;
+  }
+  .hero .base::before{
+    content:"";
+    width:7px; height:7px;
+    background:var(--rust);
+    border-radius:50%;
+    display:inline-block;
+  }
+  /* ---------- Sections ---------- */
+  section{
+    padding:52px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+  .section-head{
+    display:grid;
+    grid-template-columns:100px 1fr;
+    gap:18px;
+    margin-bottom:26px;
+  }
+  .section-head .num{
+    font-family:'Piazzolla', serif;
+    font-size:0.85rem;
+    color:var(--ink-soft);
+    padding-top:6px;
+  }
+  .section-head h2{
+    font-size:1.6rem;
+  }
+  .body-col{
+    grid-column:2;
+  }
+  p{max-width:64ch;}
+  p + p{margin-top:14px;}
+  /* ---------- Trayectoria ---------- */
+  .timeline{
+    grid-column:2;
+    border-left:2px solid var(--line);
+    padding-left:22px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+  }
+  .timeline .item .when{
+    font-size:0.8rem;
+    color:var(--rust);
+    font-weight:500;
+  }
+  .timeline .item .what{
+    font-weight:500;
+    margin-top:3px;
+  }
+  .timeline .item .detail{
+    color:var(--ink-soft);
+    font-size:0.95rem;
+    margin-top:3px;
+  }
+  /* ---------- Columnas ---------- */
+  .columns-grid{
+    grid-column:2;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+    border:1px solid var(--line);
+  }
+  .col-card{
+    padding:24px;
+  }
+  .col-card + .col-card{
+    border-left:1px solid var(--line);
+  }
+  .col-card .kicker{
+    font-size:0.78rem;
+    color:var(--copper-deep);
+    font-weight:600;
+  }
+  .col-card h3{
+    font-size:1.2rem;
+    margin-top:6px;
+  }
+  .col-card p{
+    font-size:0.93rem;
+    color:var(--ink-soft);
+    margin-top:10px;
+  }
+  .col-card a.readmore{
+    display:inline-block;
+    margin-top:14px;
+    font-size:0.85rem;
+    color:var(--ink);
+    border-bottom:1px solid var(--ink);
+  }
+  @media (max-width:560px){
+    .columns-grid{grid-template-columns:1fr;}
+    .col-card + .col-card{border-left:none; border-top:1px solid var(--line);}
+  }
+  /* ---------- Proyectos ---------- */
+  .projects{
+    grid-column:2;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .project{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:6px;
+  }
+  .project h3{font-size:1.1rem;}
+  .project .status{
+    font-size:0.78rem;
+    color:var(--copper-deep);
+    font-weight:600;
+  }
+  .project p{color:var(--ink-soft); font-size:0.95rem;}
+  /* ---------- Contacto ---------- */
+  .contact{
+    background:var(--night);
+    color:var(--paper);
+  }
+  .contact .wrap{padding:56px 28px;}
+  .contact h2{
+    color:var(--paper);
+    font-size:1.8rem;
+    max-width:16ch;
+  }
+  .contact p{
+    color:#C7CFC9;
+    margin-top:14px;
+  }
+  .contact .links{
+    margin-top:26px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:24px;
+    font-size:0.95rem;
+  }
+  .contact a{
+    color:var(--paper);
+    border-bottom:1px solid var(--copper);
+  }
+  footer{
+    padding:22px 0;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+  }
+  @media (max-width:560px){
+    .section-head{grid-template-columns:1fr;}
+    .section-head .num{padding-top:0;}
+    .body-col, .timeline, .columns-grid, .projects{grid-column:1;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap masthead">
+    <span>Antofagasta, Chile</span>
+    <span class="locale">Archivo personal · actualizado 2026</span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Alfredo Gutiérrez Fuentes</h1>
+    <p class="role">Periodista cultural, crítico y docente. Escribo sobre <em>cine</em> y <em>literatura</em> desde el norte de Chile.</p>
+    <div class="base">Antofagasta · Instituto Profesional AIEP</div>
+  </div>
+</section>
+
+<section id="trayectoria">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="num">01</span>
+      <h2>Trayectoria</h2>
+    </div>
+    <div class="timeline">
+      <div class="item">
+        <div class="when">Más de 20 años</div>
+        <div class="what">Instituto Profesional AIEP, Antofagasta</div>
+        <div class="detail">Director de Apoyo Estudiantil (DAE) y facilitador de innovación y emprendimiento.</div>
+      </div>
+      <div class="item">
+        <div class="when">Formación</div>
+        <div class="what">Magíster en Gestión Educacional</div>
+      </div>
+      <div class="item">
+        <div class="when">Docencia</div>
+        <div class="what">Cine y literatura chilena y nortina</div>
+        <div class="detail">Incluye docencia en literatura chilena y nortina en la Universidad Católica del Norte.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="columnas">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="num">02</span>
+      <h2>Columnas</h2>
+    </div>
+    <div class="columns-grid">
+      <div class="col-card">
+        <div class="kicker">Cine</div>
+        <h3>El Mercurio de Antofagasta</h3>
+        <p>Columna semanal de crítica de cine, publicada de forma continua desde diciembre de 2024.</p>
+        <a class="readmore" href="#">Ver columnas →</a>
+      </div>
+      <div class="col-card">
+        <div class="kicker">Literatura</div>
+        <h3>La Estrella del Norte</h3>
+        <p>Columna de literatura desde junio de 2026, con un formato breve y exigente de 1.100 caracteres.</p>
+        <a class="readmore" href="#">Ver columnas →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="num">03</span>
+      <h2>Proyectos</h2>
+    </div>
+    <div class="projects">
+      <div class="project">
+        <div class="status">En desarrollo</div>
+        <h3>Podcast sobre escritores del norte</h3>
+        <p>Proyecto de podcast narrativo sobre escritores y figuras culturales del norte de Chile, inspirado en el formato de "Vidas Paralelas" (Fondo del Libro). Alianza confirmada con Am Canal.</p>
+      </div>
+      <div class="project">
+        <div class="status">Meta 2028</div>
+        <h3>Corpus literario propio</h3>
+        <p>Construcción de un corpus de narrativa policial/negra para postular a concursos públicos de creación literaria.</p>
+      </div>
+      <div class="project">
+        <div class="status">Colaboración</div>
+        <h3>Entre Páginas</h3>
+        <p>Encargado de la sección de recomendaciones literarias en este programa de conversación literaria dirigido por Patricio Rojas Figueroa (FILZIC), con financiamiento del Fondo del Libro y la Lectura.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <h2>Conversemos</h2>
+    <p>Disponible para colaboraciones editoriales, entrevistas y proyectos culturales.</p>
+    <div class="links">
+      <a href="mailto:tu-correo@ejemplo.cl">tu-correo@ejemplo.cl</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Alfredo Gutiérrez Fuentes</span>
+    <span>Antofagasta, Chile</span>
+  </div>
+</footer>
+
+</body>
+</html>
