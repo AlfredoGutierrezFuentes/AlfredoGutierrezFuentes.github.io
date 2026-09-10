@@ -164,7 +164,29 @@
     color:var(--ink-soft);
     margin-top:10px;
   }
-  .col-card a.readmore{
+  .col-card .gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-top:14px;
+  }
+  .col-card .gallery a{
+    display:block;
+    border:1px solid var(--line);
+    overflow:hidden;
+  }
+  .col-card .gallery img{
+    display:block;
+    width:100%;
+    height:100px;
+    object-fit:cover;
+    object-position:top;
+    transition:transform .25s ease;
+  }
+  .col-card .gallery a:hover img{
+    transform:scale(1.06);
+  }
+  a.readmore{
     display:inline-block;
     margin-top:14px;
     font-size:0.85rem;
@@ -194,6 +216,13 @@
     font-weight:600;
   }
   .project p{color:var(--ink-soft); font-size:0.95rem;}
+  .project img.project-thumb{
+    display:block;
+    max-width:320px;
+    width:100%;
+    margin-top:12px;
+    border:1px solid var(--line);
+  }
   /* ---------- Contacto ---------- */
   .contact{
     background:var(--night);
@@ -289,13 +318,21 @@
         <div class="kicker">Cine</div>
         <h3>El Mercurio de Antofagasta</h3>
         <p>Columna semanal de crítica de cine, publicada de forma continua desde diciembre de 2024.</p>
-        <a class="readmore" href="#">Ver columnas →</a>
+        <div class="gallery">
+          <a href="img/columna-cine.png" target="_blank"><img src="img/columna-cine.png" alt="La misteriosa mirada del flamenco"></a>
+          <a href="img/columna-cine-2.png" target="_blank"><img src="img/columna-cine-2.png" alt="Los que se quedan"></a>
+          <a href="img/columna-cine-4.png" target="_blank"><img src="img/columna-cine-4.png" alt="El sobreviviente"></a>
+          <a href="img/columna-cine-3.png" target="_blank"><img src="img/columna-cine-3.png" alt="Columna de cine en Diario Sol"></a>
+        </div>
       </div>
       <div class="col-card">
         <div class="kicker">Literatura</div>
         <h3>La Estrella del Norte</h3>
         <p>Columna de literatura desde junio de 2026, con un formato breve y exigente de 1.100 caracteres.</p>
-        <a class="readmore" href="#">Ver columnas →</a>
+        <div class="gallery">
+          <a href="img/columna-literatura.png" target="_blank"><img src="img/columna-literatura.png" alt="Pantaleón y las visitadoras"></a>
+          <a href="img/columna-literatura-2.png" target="_blank"><img src="img/columna-literatura-2.png" alt="Narraciones extraordinarias"></a>
+        </div>
       </div>
     </div>
   </div>
@@ -313,15 +350,18 @@
         <h3>Podcast sobre escritores del norte</h3>
         <p>Proyecto de podcast narrativo sobre escritores y figuras culturales del norte de Chile, inspirado en el formato de "Vidas Paralelas" (Fondo del Libro). Alianza confirmada con Am Canal.</p>
       </div>
-      <div class="project">
-        <div class="status">Meta 2028</div>
-        <h3>Corpus literario propio</h3>
-        <p>Construcción de un corpus de narrativa policial/negra para postular a concursos públicos de creación literaria.</p>
-      </div>
-      <div class="project">
+<div class="project">
         <div class="status">Colaboración</div>
         <h3>Entre Páginas</h3>
         <p>Encargado de la sección de recomendaciones literarias en este programa de conversación literaria dirigido por Patricio Rojas Figueroa (FILZIC), con financiamiento del Fondo del Libro y la Lectura.</p>
+        <a href="https://www.youtube.com/watch?v=LqBSMGc9MPI" target="_blank"><img class="project-thumb" src="img/entre-paginas.png" alt="Recomendación literaria en Entre Páginas"></a>
+        <a class="readmore" href="https://www.youtube.com/watch?v=LqBSMGc9MPI" target="_blank">Ver episodio en YouTube →</a>
+      </div>
+<div class="project">
+        <div class="status">Programa propio</div>
+        <h3>La hora del cine</h3>
+        <p>Podcast de Radio AIEP que conduzco: historias, música, bandas sonoras y crítica especializada sobre el séptimo arte, desde Antofagasta.</p>
+        <a class="readmore" href="https://open.spotify.com/show/2RjY0MpyvWtksdO1nQenYz" target="_blank">Escuchar en Spotify →</a>
       </div>
     </div>
   </div>
@@ -332,9 +372,8 @@
     <h2>Conversemos</h2>
     <p>Disponible para colaboraciones editoriales, entrevistas y proyectos culturales.</p>
     <div class="links">
-      <a href="mailto:tu-correo@ejemplo.cl">tu-correo@ejemplo.cl</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">Instagram</a>
+      <a href="mailto:agutierrezfuentes@gmail.com">agutierrezfuentes@gmail.com</a>
+      <a href="https://www.linkedin.com/in/alfredo-guti%C3%A9rrez-fuentes-39b55756/" target="_blank">LinkedIn</a>
     </div>
   </div>
 </section>
